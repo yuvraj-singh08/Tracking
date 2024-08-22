@@ -1,34 +1,27 @@
-import StyledButton from "@/components/StyledButton";
-import { useAuth } from "@/hooks/useAuth";
-import { RootState } from "@/redux/store";
+import MainComp from "@/components/Dashboard/MainComp";
+import FrontPage from "@/components/Dashboard/Registration/FrontPage/FrontPage";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useRouter } from "expo-router";
-import { useEffect } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useSelector } from "react-redux";
+import React from "react";
+import { View } from "react-native";
 
-export default function Index() {
-    const router = useRouter()
-    const handleStart = () => {
-        router.push('/sign-up')
-    }
-    return (
-        <>
-            <SafeAreaView className="bg-white h-full">
-                <ScrollView contentContainerStyle={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 20,
-                    height: "100%"
+// Define the type for your stack parameters
+type RootStackParamList = {
+  'sign-in': undefined;
+  'sign-up': undefined;
+};
 
-                }}>
-                    <View>
-                        <TouchableOpacity onPress={handleStart} style={{ backgroundColor: "aliceblue", borderWidth: 1, borderRadius: 20, width: 300 }}>
-                            <Text style={{ alignItems: "center", textAlign: "center" }}>Start</Text>
-                        </TouchableOpacity>
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
-        </>
-    )
-}   
+// Type for the navigation prop
+type IndexProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'sign-in'>;
+};
+
+export default function Index({}: IndexProps) {
+ 
+
+  return (
+    <View style={{ flex: 1 }}>
+      <MainComp  />
+    </View>
+  );
+}
