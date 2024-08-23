@@ -4,15 +4,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    paddingTop:10,
+    paddingTop:70,
     backgroundColor: '#dfbb4b',
     
   },
     iconStyle: {
-    width: 350,  // Set the width of the image
-    height: 350, // Set the height of the image
+      
+    width: 250,  // Set the width of the image
+    height: 250, // Set the height of the image
     resizeMode: 'contain', // Optional: controls how the image fits within the bounds
-    alignSelf: 'center', // Optional: centers the image horizontally
+    alignSelf: 'flex-start', // Optional: centers the image horizontally
    // Optional: adds spacing below the image
   },
   formContainer: {
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1a7c4d',
     borderRadius:5,
     marginBottom: 20,
+    fontSize: 17,
     paddingHorizontal: 10,
   },
  otpContainer: {
@@ -35,17 +37,20 @@ const styles = StyleSheet.create({
   otpInput: {
     height: 60,
     width: "60%",
-    backgroundColor: '#1a7c4d',
-    borderRadius: 5,
+    borderBottomColor:'#1a7c4d',
+    borderBottomWidth:1,
+    
     marginRight: 10, // Space between input and button
-    paddingHorizontal: 10,
-    color: '#fff', // Ensure text is visible
+  
+    color: '#fff',
+    fontSize: 18, // Ensure text is visible
   },
   otpButton: {
-    height: 50,
+    height: 60,
     width: 100, // Adjusted width for better fit
-    backgroundColor: '#2299aa',
+    backgroundColor: '#1a7c4d',
     borderRadius: 5,
+    left:20,
     justifyContent: 'center',
     alignItems: 'center',
   },

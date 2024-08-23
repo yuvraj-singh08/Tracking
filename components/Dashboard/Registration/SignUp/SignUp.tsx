@@ -5,9 +5,9 @@ import { getImages } from '@/components/getImage'; // Import your image assets
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type RootStackParamList = {
-  home:undefined
+  createpassword:undefined
 };
-type NavigationProps = NativeStackNavigationProp<RootStackParamList, 'home'>;
+type NavigationProps = NativeStackNavigationProp<RootStackParamList, 'createpassword'>;
 type FrontPageProps = {
   navigation: NavigationProps;
 };
@@ -29,7 +29,7 @@ const SignUp: React.FC<FrontPageProps> = ({ navigation })=> {
     console.log('Email:', email);
     console.log('Phone Number:', phoneNumber);
     console.log('OTP:', otp);
-navigation.navigate('home')
+navigation.navigate('createpassword')
   };
 
   return (
@@ -62,8 +62,9 @@ navigation.navigate('home')
         />
         <View style={styles.otpContainer}><TextInput
               style={styles.otpInput}
-              placeholder="OTP"
-              placeholderTextColor="#aaa"
+              placeholder="Enter OTP"
+             placeholderTextColor="#fff"
+            
               value={otp}
               onChangeText={setOtp}
               keyboardType="numeric"
@@ -74,7 +75,7 @@ navigation.navigate('home')
             </TouchableOpacity></View>
        
         <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

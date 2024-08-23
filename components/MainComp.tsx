@@ -2,13 +2,15 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import FrontPage from './Registration/FrontPage/FrontPage';
-import Login from './Registration/Login/Login';
-import SignUp from './Registration/SignUp/SignUp';
-import Home from '../Tabs/TabsBarPages/Home';
-import Profile from '../Tabs/TabsBarPages/Profile';
-import Post from '../Tabs/TabsBarPages/Post';
-import About from '../Tabs/TabsBarPages/About';
+import FrontPage from '../components/Dashboard/Registration/FrontPage/FrontPage';
+import Login from '../components/Dashboard/Registration/Login/Login';
+import SignUp from '../components/Dashboard/Registration/SignUp/SignUp';
+import Home from '../components/Tabs/TabsBarPages/Home';
+import Profile from '../components/Tabs/TabsBarPages/Profile';
+import Post from '../components/Tabs/TabsBarPages/Post';
+import About from '../components/Tabs/TabsBarPages/About';
+import CreatePassword from '../components/Dashboard/Registration/CreatePassword/CreatePassword'
+import { create } from 'react-test-renderer';
 
 // Define the types for the stack parameters
 type RootStackParamList = {
@@ -17,6 +19,7 @@ type RootStackParamList = {
   signup: undefined;
   home: undefined;
   tabbar: undefined;
+  createpassword:undefined
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -39,7 +42,7 @@ const TabNavigator: React.FC = () => {
 const DrawerNavigator: React.FC = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={TabNavigator} />
+      <Drawer.Screen name="Home" component={TabNavigator} options={{ headerShown: false }} />
       <Drawer.Screen name="Profile" component={Profile} />
       <Drawer.Screen name="Post" component={Post} />
       <Drawer.Screen name="About" component={About} />
@@ -64,6 +67,11 @@ const MainComp: React.FC = () => {
       <Stack.Screen
         name="signup"
         component={SignUp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="createpassword"
+        component={CreatePassword}
         options={{ headerShown: false }}
       />
       <Stack.Screen

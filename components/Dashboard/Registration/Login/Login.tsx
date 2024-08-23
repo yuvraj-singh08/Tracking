@@ -1,34 +1,38 @@
 import { getImages } from '@/components/getImage';
 import React, { useState } from 'react';
 import styles from './LoginStyle';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView,Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-// Import the icon library
+
 type RootStackParamList = {
-  home:undefined
+  home: undefined;
+  ForgotPassword: undefined; // Add the ForgotPassword screen to your navigation stack
 };
+
 type NavigationProps = NativeStackNavigationProp<RootStackParamList, 'home'>;
 
-// Define the props for the FrontPage component
 type FrontPageProps = {
   navigation: NavigationProps;
 };
-const Login: React.FC<FrontPageProps> = ({ navigation })  => {
+
+const Login: React.FC<FrontPageProps> = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Handle login logic here
     console.log('Phone Number:', phoneNumber);
     console.log('Password:', password);
-    navigation.navigate('home')
+    navigation.navigate('home');
+  };
+
+  const handleForgotPassword = () => {
+    navigation.navigate('ForgotPassword'); // Navigate to ForgotPassword screen
   };
 
   return (
     <ScrollView style={styles.container}>
-  
-     <Image source={getImages.icoFront} style={styles.iconStyle} />
+      <Image source={getImages.icoFront} style={styles.iconStyle} />
       <View style={styles.formContainer}>
         <TextInput
           style={styles.input}
@@ -46,15 +50,17 @@ const Login: React.FC<FrontPageProps> = ({ navigation })  => {
           onChangeText={setPassword}
           secureTextEntry
         />
+      </View>
+      <View>
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={handleForgotPassword} style={styles.forgotPassword}>
+          <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+        </TouchableOpacity>
       </View>
-    
     </ScrollView>
   );
 };
-
-
 
 export default Login;
