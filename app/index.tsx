@@ -1,4 +1,4 @@
-import MainComp from "@/components/MainComp";
+import MainComp from "@/components/Dashboard/MainComp";
 import FrontPage from "@/components/Dashboard/Registration/FrontPage/FrontPage";
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useRouter } from "expo-router";
